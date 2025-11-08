@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    overflow: hidden;
+    cursor: none; /* Hide default cursor for immersive experience */
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    padding: 40px;
+    color: white;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Dragon Head */
+.dragon {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    transition: transform 0.1s ease-out;
+}
+
+.dragon-head {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    border-radius: 50% 50% 40% 40%;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+    animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Eyes */
+.eye {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    top: 15px;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #1e3c72;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    animation: blink 3s infinite;
+}
+
+.eye-left {
+    left: 12px;
+}
+
+.eye-right {
+    right: 12px;
+}
+
+@keyframes blink {
+    0%, 96%, 100% {
+        transform: scaleY(1);
+    }
+    98% {
+        transform: scaleY(0.1);
+    }
+}
+
+/* Horns */
+.horn {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 20px solid #ff8787;
+    top: -15px;
+}
+
+.horn-left {
+    left: 8px;
+    transform: rotate(-15deg);
+}
+
+.horn-right {
+    right: 8px;
+    transform: rotate(15deg);
+}
+
+/* Flame */
+.flame {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ffeb3b 0%, #ff9800 50%, transparent 70%);
+    border-radius: 50% 0 50% 50%;
+    opacity: 0;
+    animation: flame 0.5s ease-in-out infinite;
+}
+
+@keyframes flame {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+/* Dragon Trail (Body Segments) */
+.trail-segment {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+    transition: all 0.2s ease-out;
+}
+
+/* Scale colors for trail segments */
+.trail-segment:nth-child(1) { background: #ff6b6b; }
+.trail-segment:nth-child(2) { background: #ff7979; }
+.trail-segment:nth-child(3) { background: #ff8787; }
+.trail-segment:nth-child(4) { background: #ff9595; }
+.trail-segment:nth-child(5) { background: #ffa3a3; }
+.trail-segment:nth-child(6) { background: #ffb1b1; }
+.trail-segment:nth-child(7) { background: #ffbfbf; }
+.trail-segment:nth-child(8) { background: #ffcdcd; }
+.trail-segment:nth-child(9) { background: #ffdbdb; }
+.trail-segment:nth-child(10) { background: #ffe9e9; }

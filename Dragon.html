@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Cursor Dragon</title>
+    <link rel="stylesheet" href="Dragon.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Cursor Dragon</h1>
+        <p>Move your cursor around to see the dragon follow you!</p>
+    </div>
+
+    <!-- Dragon Container -->
+    <div id="dragon" class="dragon">
+        <div class="dragon-head">
+            <div class="eye eye-left"></div>
+            <div class="eye eye-right"></div>
+            <div class="horn horn-left"></div>
+            <div class="horn horn-right"></div>
+            <div class="flame"></div>
+        </div>
+    </div>
+
+    <!-- Dragon Trail (Body Segments) -->
+    <div id="dragon-trail"></div>
+
+    <script src="Dragon.js"></script>
+</body>
+</html>
